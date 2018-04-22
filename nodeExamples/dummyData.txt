@@ -1,0 +1,19 @@
+This is some dummy data
+It's a file to play with using node
+Lets have some blank lines
+
+
+maybe some numbers?
+0
+1
+2
+3
+4
+5
+6
+7
+8
+9
+
+and maybe some numbers on a line
+0123456789

@@ -2,11 +2,12 @@
   "name": "nodePractice",
   "version": "0.1.0",
   "scripts": {
-    "start": "node nodeSimpleServer.js"
+    "start": "node server.js"
   },
   "dependencies": {
     "async": "^2.5.0",
-    "express": "^4.16.3"
+    "express": "^4.16.3",
+    "mongodb": "^3.0.7"
   },
   "license": "MIT"
 }
