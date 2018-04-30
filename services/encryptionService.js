@@ -15,8 +15,7 @@ function decrypt(text){
    return dec;
 }
 
-var text = "Text to encrypt and decrypt";
-var e = encrypt(text);
-console.log(e);
-var d = decrypt(e);
-console.log(d);	
+module.exports = {
+    encrypt: encrypt,
+    decrypt: decrypt
+};

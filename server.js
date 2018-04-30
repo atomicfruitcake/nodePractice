@@ -6,7 +6,7 @@ var crypto = require('crypto');
 
 var app = express();
 
-var new_db = "mongodb://localhost:27017/myDatabase";
+var mongodb = "mongodb://localhost:27017/nodedb";
 
 app.get('/',function(req,res){
 	res.set({
@@ -34,7 +34,7 @@ app.post('/sign_up' ,function(req,res){
 	var name = req.body.name;
 	var email= req.body.email;
 	var pass = req.body.password;
-		var phone = req.body.phone;
+	var phone = req.body.phone;
 	var password = getHash( pass , phone ); 				
 
 	
@@ -44,14 +44,14 @@ app.post('/sign_up' ,function(req,res){
 		"password": password, 
 		"phone" : phone
 	}
-	
-	mongo.connect(new_db , function(error , db){
+	var waiting = []; // Callbacks waiting for the connection to be made
+	mongo.connect(mongodb , function(error , db){
 		if (error){
 			throw error;
 		}
 		console.log("connected to database successfully");
-		//CREATING A COLLECTION IN MONGODB USING NODE.JS
-		db.collection("details").insertOne(data, (err , collection) => {
+		var nodedb = db.db("nodedb");
+		nodedb.collection("customerDetails").insertOne(data, (err , collection) => {
 			if(err) throw err;
 			console.log("Record inserted successfully");
 			console.log(collection);
